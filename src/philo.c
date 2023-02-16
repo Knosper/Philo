@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:51:32 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/02/16 02:59:33 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:47:05 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ static int	init_philo_helper(t_data *data, t_philo *philo)
 		philo[i].deathline = data->die_t;
 		pthread_mutex_lock(&data->death_lock);
 		pthread_mutex_unlock(&data->death_lock);
-		if (i == 2)
-			return (1);
 		if (pthread_create(&data->thread[i], NULL, &routine, &philo[i]) != 0)
 			return (1);
 		i++;
