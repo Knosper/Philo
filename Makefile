@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
+#    By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 14:29:49 by jjesberg          #+#    #+#              #
-#    Updated: 2023/02/16 02:45:45 by jjesberg         ###   ########.fr        #
+#    Updated: 2023/02/16 17:18:50 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

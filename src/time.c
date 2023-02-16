@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: jjesberg <j.jesberger@heilbronn.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 20:10:12 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/02/13 20:12:22 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:39:31 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,23 @@ int	check_time(t_data *data)
 	return (time - data->start_time);
 }
 
-int	ft_usleep(int waiting_time, t_philo *philo)
+int	ft_usleep(int time, t_philo *philo)
 {
-	int	wake_up_time;
-	int	time_left;
+	int	uptime;
+	int	time_diff;
 
-	wake_up_time = waiting_time + check_time(philo->d);
-	time_left = waiting_time;
-	while (time_left > 0)
+	uptime = time + check_time(philo->d);
+	time_diff = time;
+	while (time_diff > 0)
 	{
 		if (is_dead(philo) && (philo->d->max_m == 0 \
 		|| check_meal(philo) < philo->d->party_size))
 			return (1);
-		if (time_left >= 5)
+		if (time_diff >= 5)
 			usleep(5000);
 		else
-			usleep(time_left);
-		time_left = wake_up_time - check_time(philo->d);
+			usleep(time_diff);
+		time_diff = uptime - check_time(philo->d);
 	}
 	if (is_dead(philo) && (philo->d->max_m == 0 \
 	|| check_meal(philo) < philo->d->party_size))
