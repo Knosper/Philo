@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:27:34 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/02/13 19:33:06 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:05:15 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	init_mutex(t_data *data)
 
 int	init_data_helper(t_data *data)
 {
-	data->fork_rdy = malloc(sizeof(int) * (data->party_size));
+	data->fork_rdy = malloc(sizeof(bool) * (data->party_size));
 	if (!data->fork_rdy)
 		return (1);
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->party_size);
@@ -48,7 +48,7 @@ int	init_data_helper(t_data *data)
 		free(data->forks);
 		return (1);
 	}
-	data->fork_rdy = ft_memset(data->fork_rdy, 1, data->party_size);
+	data->fork_rdy = ft_memset(data->fork_rdy, true, data->party_size);
 	data->_error = init_mutex(data);
 	if (data->_error != 0)
 		return (1);

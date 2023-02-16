@@ -6,7 +6,7 @@
 /*   By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 20:16:46 by jjesberg          #+#    #+#             */
-/*   Updated: 2023/02/13 20:47:01 by jjesberg         ###   ########.fr       */
+/*   Updated: 2023/02/16 02:47:18 by jjesberg         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	take_forks(t_philo *philo, pthread_mutex_t *l_fork, pthread_mutex_t *r_fork)
 	dead = is_dead(philo);
 	while (!dead && (!left || !right))
 	{
+		if ((philo->meal_count >= philo->d->max_m && philo->d->max_m != 0))
+			break ;
 		left = take_fork(left, l_fork, philo, philo->id);
 		right = take_fork(right, r_fork, philo, \
 		(philo->id + 1) % philo->d->party_size);

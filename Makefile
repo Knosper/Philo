@@ -6,7 +6,7 @@
 #    By: jjesberg <jjesberg@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/09 14:29:49 by jjesberg          #+#    #+#              #
-#    Updated: 2023/02/13 21:22:37 by jjesberg         ###   ########.fr        #
+#    Updated: 2023/02/16 02:45:45 by jjesberg         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -pthread -g -fsanitize=thread -Werror
+FLAGS = -Wall -Wextra -Werror -pthread #-fsanitize=thread
 
 all: $(NAME)
 
